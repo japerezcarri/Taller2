@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller2</title>
+    <link rel="stylesheet" href="css/eTaller2.css">
+</head>
+
+<body>
+
+    <!-- Punto 1 -->
+    <section class="punto1">
+        <div class="pantalla">
+            <video controls src="IMG/video1.mp4" type="video/mp4"></video>
+
+            <div class="volumen control">
+                <p>Vol</p>
+                <button id="subir">+</button> <br>
+                <button id="mute"><img src="IMG/mudo.png" alt=""></button> <br>
+                <button id="daVol"><img src="IMG/volumen.png" alt=""></button>
+                <button id="bajar">-</button>
+            </div>
+
+        </div>
+        <div class="contenedor">
+            <div class="control">
+                <button id="atrasar"><img src="IMG/hacia-atras.png" alt=""></button>
+                <button id="play"><img src="IMG/play.png" alt=""></button>
+                <button id="pausar"><img src="IMG/pausa.png" alt=""></button>
+                <button id="adelantar"><img src="IMG/adelante.png" alt=""></button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Script -->
+    <script>
+    
+                /* punto 1 */
+                document.getElementsByTagName('section')[0].style.display = "block";
+
+                let vid = document.getElementsByTagName('video')[0];
+                /* play */
+                document.getElementById('play').addEventListener("click", function () {
+                    vid.play();
+                    document.getElementById('pausar').style.display = "inline-block";
+                    document.getElementById('play').style.display = "none";
+                });
+                /* pausar */
+                document.getElementById('pausar').addEventListener("click", function () {
+                    vid.pause();
+                    document.getElementById('play').style.display = "inline-block";
+                    document.getElementById('pausar').style.display = "none";
+                });
+                /* adelantar y atrasar */
+                document.getElementById('adelantar').addEventListener("click", function () {
+                    
+                    vid.currentTime += 10;
+                });
+                document.getElementById('atrasar').addEventListener("click", function () {
+                    vid.currentTime -= 10;
+                });
+                /* modif volumen */
+                vol = 1;
+                document.getElementById('subir').addEventListener("click", function () {
+                    if(vol<1){
+                    vol += 0.2;
+                    vid.volume = vol;
+                }
+                });
+                document.getElementById('bajar').addEventListener("click", function () {
+                    if(vol> 0){
+                        vol -= 0.2;
+                    vid.volume = vol;
+                    }
+                    
+                });
+                document.getElementById('mute').addEventListener("click", function () {
+                    vid.volume = 0;
+                    document.getElementById('daVol').style.display="block";
+                    document.getElementById('mute').style.display="none";
+                });
+                document.getElementById('daVol').addEventListener("click", function () {
+                    vid.volume = vol;
+                    document.getElementById('mute').style.display="block";
+                    document.getElementById('daVol').style.display="none";
+                });
+    
+                
+    </script>
+
+</body>
+
+</html>

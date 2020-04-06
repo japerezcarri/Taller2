@@ -1,0 +1,59 @@
+.pantalla, .contenedor{
+    padding: 10px;
+    display: flex;
+    justify-content: center; 
+}
+video{
+    width: 500px;
+}
+.volumen{
+    float: right;
+    padding: 20px;
+    font-size: 20px;
+}
+.volumen button{
+    font-size: 30px;
+    width: 40px;
+    margin-top: 5px;
+    color: rgb(71, 151, 165);
+    background-color: white;
+    border-radius: 5%;
+}
+#pausar, #daVol{
+    display: none;
+}
+.control img{
+    width: 30px;
+}
+.punto1, .punto2, .punto3, .punto4{
+    display: none;
+}
+
+.punto2 div{
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    display: inline-block;
+    margin-right: 10px;
+    border: 1px solid gray;
+    text-align: center;
+}
+#referenciap2{
+    border: none;
+    width: 12px;
+    height: 12px;
+}
+#contenedor2{
+    margin: 20px;
+}
+.punto3 div{
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    margin: 10px;
+    border: 1px solid grey;
+  
+}
+.punto3{
+    justify-content: center;
+}

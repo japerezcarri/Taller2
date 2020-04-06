@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/etaller2.css">
+</head>
+
+<body>
+    <div></div>
+    <!-- Punto2 -->
+    <section class="punto2" id="punto2">
+        <button id="agregar">Agregar</button>
+        <button id="eliminar">Eliminar</button>
+        <button id="elimIm">Eliminar Impares</button>
+        <button id="elimPar">Eliminar Pares</button> <br>
+        <section id="contenedor2">
+            <div id="referenciap2"></div>
+        </section>
+
+    </section>
+    <script>
+        document.getElementsByTagName('section')[0].style.display = "block";
+
+        /* Función boton agregar */
+
+        let padre = document.getElementById('contenedor2');
+
+
+        function insertar() {
+            // Agregar div */
+            let contador = document.getElementById('punto2').getElementsByTagName('div').length
+
+            let elemento = document.createElement('div');
+
+            let ref = document.getElementById('referenciap2');
+
+            padre.insertBefore(elemento, ref);
+            // Agregar número de div 
+            let elemento2 = document.createElement('p');
+            elemento2.innerHTML = contador;
+            elemento.appendChild(elemento2);
+            contador++;
+        }
+        /* Función eliminar*/
+        function eliminando() {
+            let elementos = document.getElementById('punto2').getElementsByTagName('div').length;
+            let elemento = document.getElementById('punto2').getElementsByTagName('div')[elementos - 2];
+
+            if (!elemento) {
+                alert("no hay más div para eliminar")
+            } else {
+                padre.removeChild(elemento);
+            }
+
+        }
+        function eliminandoImp() {
+            let elementos = document.getElementById('punto2').getElementsByTagName('div').length;
+           
+
+            for (var i = 0; i < elementos; i++) {
+                let elemento = document.getElementById('punto2').getElementsByTagName('div')[i];
+                numero = parseInt(elemento.getElementsByTagName('p')[0].innerText);
+                if (numero % 2 != 0) {
+                    padre.removeChild(elemento);
+                }
+            }
+        }
+        function eliminandoPar() {
+            let elementos = document.getElementById('punto2').getElementsByTagName('div').length;
+           
+
+            for (var i = 0; i < elementos; i++) {
+                let elemento = document.getElementById('punto2').getElementsByTagName('div')[i];
+                numero = parseInt(elemento.getElementsByTagName('p')[0].innerText);
+                if (numero % 2 == 0) {
+                    padre.removeChild(elemento);
+                }
+            }
+        }
+        /* Agregando eventos a los botones */
+
+        let btnAgregar = document.getElementById('agregar');
+        btnAgregar.addEventListener("click", insertar, false);
+
+        let btnEliminar = document.getElementById('eliminar');
+        btnEliminar.addEventListener("click", eliminando, false);
+
+        let btnImpar = document.getElementById('elimIm');
+        btnImpar.addEventListener("click", eliminandoImp, false);
+
+        let btnPar = document.getElementById('elimPar');
+        btnPar.addEventListener("click", eliminandoPar, false); 
+    </script>
+
+</body>
+
+</html>

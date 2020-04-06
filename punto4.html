@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/eTaller2.css">
+</head>
+<body>
+    <section class="contenedor">
+        <img src="IMG/perro.jpg" alt="" style="width: 500px;"> <br>
+    </section>
+    <div class="contenedor">
+    <button id="aumentar">Zoom +</button>
+    <button id="disminuir">Zoom -</button>
+    </div>
+
+    <script>
+        let zoom4=1;
+        let imagen=document.getElementsByTagName('img')[0];
+        document.getElementById('aumentar').addEventListener("click",function(){
+            zoom4=zoom4+0.2;
+            imagen.style.zoom=zoom4;
+        });
+        document.getElementById('disminuir').addEventListener("click",function(){
+            zoom4=zoom4-0.2;
+            imagen.style.zoom=zoom4;
+        });
+    </script>
+
+</body>
+</html>
